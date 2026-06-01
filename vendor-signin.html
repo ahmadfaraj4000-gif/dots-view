@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dots View Truck Sign In</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="auth-page">
+<header>
+<div class="wrap nav">
+<a class="logo" href="index.html"><img src="logo.png" alt="Dots View logo"></a>
+<nav>
+<a href="index.html">Home</a>
+<a class="active" href="vendor.html">For Vendors</a>
+<a href="index.html#marketplace">Menu Board</a>
+</nav>
+<a class="btn" href="vendor.html">Vendor Plans</a>
+</div>
+</header>
+
+<main class="auth-shell">
+<section class="signin-window" aria-labelledby="signin-title">
+<div class="window-bar">
+<span></span>
+<span></span>
+<span></span>
+</div>
+<p class="eyebrow">Truck Login</p>
+<h1 id="signin-title">Open the truck board.</h1>
+<p class="lead">Update the menu, move the Dot, check tickets, and let regulars know where you parked.</p>
+<div class="auth-note">
+<strong>For now:</strong>
+<span>Use any valid email and any password. New trucks get Dot Pro free for one month.</span>
+</div>
+
+<form class="signin-form" action="vendor-profile-pro.html" method="get">
+<label for="email">Email</label>
+<input id="email" name="email" type="email" placeholder="truck@dotsview.com" required>
+
+<label for="password">Password</label>
+<input id="password" name="password" type="password" placeholder="Enter password" required>
+
+<div class="form-row">
+<label class="checkline">
+<input type="checkbox" name="remember">
+<span>Remember me</span>
+</label>
+<a href="list-your-truck.html">Create account</a>
+</div>
+
+<button class="btn primary btn-block" type="submit">Open Truck Board</button>
+</form>
+<p class="auth-switch">New truck? <a href="list-your-truck.html">Start a profile</a></p>
+</section>
+</main>
+</body>
+</html>

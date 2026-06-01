@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start Selling | Dots View</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="auth-page list-truck-page">
+<header>
+<div class="wrap nav">
+<a class="logo" href="index.html"><img src="logo.png" alt="Dots View logo"></a>
+<nav>
+<a href="index.html">Home</a>
+<a href="vendor.html">Vendor Plans</a>
+<a class="active" href="list-your-truck.html">Start Selling</a>
+<a href="livefeed.html">Live Feed</a>
+<a href="vendor-signin.html">Sign In</a>
+</nav>
+<a class="btn" href="vendor.html">Vendor Plans</a>
+</div>
+</header>
+
+<main class="auth-shell list-truck-shell">
+<section class="signin-window list-truck-window" aria-labelledby="list-title">
+<div class="window-bar">
+<span></span>
+<span></span>
+<span></span>
+</div>
+<p class="eyebrow">Vendor Signup</p>
+<h1 id="list-title">Put your spot on the map.</h1>
+<p class="lead">List a truck, a traveling vendor show, or a one-day pop-up. New vendors get Dot Pro free for one month, and single-day events can use a Day Pass.</p>
+
+<form class="signin-form list-truck-form" action="vendor-profile-pro.html" method="get">
+<div class="form-section">
+<h2>What are you listing?</h2>
+<div class="type-grid">
+<label class="type-card truck-type">
+<input type="radio" name="listing-type" value="food-truck" required>
+<span class="type-dot"></span>
+<strong>Food Truck</strong>
+<small>A truck or trailer that moves through regular stops.</small>
+</label>
+<label class="type-card show-type">
+<input type="radio" name="listing-type" value="vendor-show">
+<span class="type-dot"></span>
+<strong>Vendor Show</strong>
+<small>A traveling booth, table, market stand, fair, or show vendor.</small>
+</label>
+<label class="type-card popup-type">
+<input type="radio" name="listing-type" value="popup-shop">
+<span class="type-dot"></span>
+<strong>Pop-Up Shop</strong>
+<small>A garage sale, yard sale, one-day table, drop, or neighborhood setup.</small>
+</label>
+</div>
+</div>
+
+<div class="form-section">
+<h2>Listing Basics</h2>
+<div class="form-grid">
+<div>
+<label for="listing-name">Name</label>
+<input id="listing-name" name="listing-name" type="text" placeholder="Toro Tacos, Elm City Vintage, Maple Street Garage Sale" required>
+</div>
+<div>
+<label for="category">Category</label>
+<input id="category" name="category" type="text" placeholder="Tacos, handmade goods, records, yard sale" required>
+</div>
+<div>
+<label for="owner-name">Owner or manager</label>
+<input id="owner-name" name="owner-name" type="text" placeholder="Maya Rivera" required>
+</div>
+<div>
+<label for="business-email">Business email</label>
+<input id="business-email" name="business-email" type="email" placeholder="truck@dotsview.com" required>
+</div>
+<div>
+<label for="phone">Phone</label>
+<input id="phone" name="phone" type="tel" placeholder="(203) 555-0148" required>
+</div>
+<div>
+<label for="home-base">Home base</label>
+<input id="home-base" name="home-base" type="text" placeholder="New Haven, CT" required>
+</div>
+</div>
+</div>
+
+<div class="form-section">
+<h2>Vehicle, Booth, or Setup</h2>
+<div class="form-grid">
+<div>
+<label for="vehicle-type">Setup type</label>
+<select id="vehicle-type" name="vehicle-type" required>
+<option value="">Choose one</option>
+<option>Food truck</option>
+<option>Food trailer</option>
+<option>Cart or stand</option>
+<option>Market tent</option>
+<option>Vendor booth</option>
+<option>Garage sale or driveway setup</option>
+</select>
+</div>
+<div>
+<label for="plate">License plate, if rolling</label>
+<input id="plate" name="plate" type="text" placeholder="CT 123-ABC">
+</div>
+<div>
+<label for="registration">Vehicle or booth registration</label>
+<input id="registration" name="registration" type="text" placeholder="Registration ID, booth number, or event code">
+</div>
+<div>
+<label for="ein">EIN or tax ID</label>
+<input id="ein" name="ein" type="text" placeholder="12-3456789">
+</div>
+<div>
+<label for="permit">Permit number, if needed</label>
+<input id="permit" name="permit" type="text" placeholder="Health, market, event, or town permit">
+</div>
+<div>
+<label for="insurance">Insurance policy</label>
+<input id="insurance" name="insurance" type="text" placeholder="Policy number">
+</div>
+</div>
+</div>
+
+<div class="form-section">
+<h2>First Stop or Event</h2>
+<div class="form-grid">
+<div>
+<label for="service-area">Usual service area</label>
+<input id="service-area" name="service-area" type="text" placeholder="Long Wharf, Wooster Square, East Rock, local shows">
+</div>
+<div>
+<label for="first-stop">First place to show</label>
+<input id="first-stop" name="first-stop" type="text" placeholder="Long Wharf Dr, school fair, garage on Maple St">
+</div>
+<div>
+<label for="hours">Hours or event time</label>
+<input id="hours" name="hours" type="text" placeholder="Sat, 9AM-3PM or Tue-Sat, 11AM-8PM">
+</div>
+<div>
+<label for="plan">Starting plan</label>
+<select id="plan" name="plan" required>
+<option>Dot Pro trial - first month free</option>
+<option>Dot Pro Day Pass</option>
+<option>Dot Plus</option>
+</select>
+</div>
+</div>
+<label for="menu-note">What should people know?</label>
+<textarea id="menu-note" name="menu-note" rows="4" placeholder="Al pastor, vintage denim, kids clothes, vinyl records, handmade candles, rain plan, cash only, or anything useful."></textarea>
+</div>
+
+<label class="checkline agreement">
+<input type="checkbox" name="confirm" required>
+<span>I confirm this listing has permission to sell or set up in its listed area and the information is accurate enough for a prototype signup.</span>
+</label>
+
+<button class="btn primary btn-block" type="submit">Create Truck Profile</button>
+</form>
+<p class="auth-switch">Already listed? <a href="vendor-signin.html">Sign in</a></p>
+</section>
+</main>
+</body>
+</html>

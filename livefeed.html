@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Feed | Dots View</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="livefeed-page">
+<header>
+<div class="wrap nav">
+<a class="logo" href="index.html"><img src="logo.png" alt="Dots View logo"></a>
+<nav>
+<a href="index.html">Home</a>
+<a class="active" href="livefeed.html">Live Feed</a>
+<a href="vendor.html">For Vendors</a>
+<a href="list-your-truck.html">Start Selling</a>
+</nav>
+<a class="cta" href="list-your-truck.html">Start Selling</a>
+</div>
+</header>
+
+<main class="livefeed-shell">
+<section class="livefeed-top wrap">
+<div>
+<p class="eyebrow">Customer Live Feed</p>
+<h1>What is open nearby.</h1>
+<p class="lead">Food trucks, traveling vendor shows, and neighborhood pop-ups on one live map.</p>
+</div>
+<div class="feed-filters" aria-label="Map filters">
+<label><input type="checkbox" data-filter="truck" checked><span class="legend-dot truck-dot"></span>Food trucks</label>
+<label><input type="checkbox" data-filter="show" checked><span class="legend-dot show-dot"></span>Vendor shows</label>
+<label><input type="checkbox" data-filter="popup" checked><span class="legend-dot popup-dot"></span>Pop-ups</label>
+</div>
+</section>
+
+<section class="wrap live-map-wrap">
+<div class="live-map" aria-label="Live vendor map">
+<div class="lf-water"></div>
+<div class="lf-beach">Harbor edge</div>
+<div class="terrain terrain-a"></div>
+<div class="terrain terrain-b"></div>
+<div class="terrain terrain-c"></div>
+<div class="lf-park lf-park-a">Wooster Square</div>
+<div class="lf-park lf-park-b">Long Wharf</div>
+<div class="tree-cluster trees-a" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+<div class="tree-cluster trees-b" aria-hidden="true"><span></span><span></span><span></span></div>
+<div class="tree-cluster trees-c" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+<div class="lf-road lf-road-main"></div>
+<div class="lf-road lf-road-cross"></div>
+<div class="lf-road lf-road-shore"></div>
+<div class="lf-road lf-road-diag"></div>
+<div class="lf-label lf-label-main">Chapel St</div>
+<div class="lf-label lf-label-cross">State St</div>
+<div class="lf-label lf-label-shore">Long Wharf Dr</div>
+
+<div class="demand-hotspot">
+<strong>Demand Hotspot</strong>
+<span>Lunch activity building near the green</span>
+</div>
+
+<button class="map-marker marker-truck m1" data-type="truck" type="button" aria-label="Toro Tacos food truck">
+<span class="marker-icon" data-letter="T"></span>
+<span class="marker-card"><strong>Toro Tacos</strong><small>Food truck</small><em>Today: 11AM-8PM</em><em>Near Chapel St, by the green</em></span>
+</button>
+<button class="map-marker marker-truck m2" data-type="truck" type="button" aria-label="Cloud Coffee food truck">
+<span class="marker-icon" data-letter="C"></span>
+<span class="marker-card"><strong>Cloud Coffee</strong><small>Food truck</small><em>Today: 7AM-2PM</em><em>Near State St and the library</em></span>
+</button>
+<button class="map-marker marker-show m3" data-type="show" type="button" aria-label="Elm City Makers vendor show">
+<span class="marker-icon" data-letter="S"></span>
+<span class="marker-card"><strong>Elm City Makers</strong><small>Vendor show</small><em>Today: 10AM-5PM</em><em>Approx. Wooster Square park edge</em></span>
+</button>
+<button class="map-marker marker-show m4" data-type="show" type="button" aria-label="Harbor Craft Row vendor show">
+<span class="marker-icon" data-letter="H"></span>
+<span class="marker-card"><strong>Harbor Craft Row</strong><small>Traveling vendors</small><em>Today: Noon-6PM</em><em>Long Wharf, near the water</em></span>
+</button>
+<button class="map-marker marker-popup m5" data-type="popup" type="button" aria-label="Maple Street garage sale">
+<span class="marker-icon" data-letter="P"></span>
+<span class="marker-card"><strong>Maple Street Sale</strong><small>Garage sale</small><em>Today: 9AM-3PM</em><em>Approx. Maple St driveway row</em></span>
+</button>
+<button class="map-marker marker-popup m6" data-type="popup" type="button" aria-label="Vinyl box pop-up shop">
+<span class="marker-icon" data-letter="V"></span>
+<span class="marker-card"><strong>Vinyl Box Pop-Up</strong><small>Records and tapes</small><em>Today: 1PM-7PM</em><em>Near Long Wharf Dr lot B</em></span>
+</button>
+
+<aside class="live-map-panel">
+<strong>Live now</strong>
+<div><span class="legend-dot truck-dot"></span>2 food trucks</div>
+<div><span class="legend-dot show-dot"></span>2 vendor shows</div>
+<div><span class="legend-dot popup-dot"></span>2 pop-ups</div>
+</aside>
+</div>
+</section>
+</main>
+
+<script>
+const filters = document.querySelectorAll("[data-filter]");
+const markers = document.querySelectorAll("[data-type]");
+
+function updateMapFilters() {
+  const active = new Set([...filters].filter((filter) => filter.checked).map((filter) => filter.dataset.filter));
+  markers.forEach((marker) => {
+    marker.classList.toggle("is-hidden", !active.has(marker.dataset.type));
+  });
+}
+
+filters.forEach((filter) => filter.addEventListener("change", updateMapFilters));
+updateMapFilters();
+</script>
+</body>
+</html>

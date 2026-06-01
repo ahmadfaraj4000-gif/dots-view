@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dots View Truck Sign Up</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="auth-page">
+<header>
+<div class="wrap nav">
+<a class="logo" href="index.html"><img src="logo.png" alt="Dots View logo"></a>
+<nav>
+<a href="index.html">Home</a>
+<a class="active" href="vendor.html">For Vendors</a>
+<a href="index.html#marketplace">Menu Board</a>
+</nav>
+<a class="btn" href="vendor-signin.html">Sign In</a>
+</div>
+</header>
+
+<main class="auth-shell">
+<section class="signin-window" aria-labelledby="signup-title">
+<div class="window-bar">
+<span></span>
+<span></span>
+<span></span>
+</div>
+<p class="eyebrow">Put Your Truck on the Map</p>
+<h1 id="signup-title">Start your truck profile.</h1>
+<p class="lead">Add the basics, get Dot Pro free for one month, and post your first stop.</p>
+
+<form class="signin-form" action="vendor-profile-pro.html" method="get">
+<label for="business">Truck name</label>
+<input id="business" name="business" type="text" placeholder="Toro Tacos" required>
+
+<label for="email">Email</label>
+<input id="email" name="email" type="email" placeholder="truck@dotsview.com" required>
+
+<label for="phone">Phone</label>
+<input id="phone" name="phone" type="tel" placeholder="(555) 123-4567" required>
+
+<label for="password">Password</label>
+<input id="password" name="password" type="password" placeholder="Create password" required>
+
+<button class="btn primary btn-block" type="submit">Create Truck Profile</button>
+</form>
+<p class="auth-switch">Already have an account? <a href="vendor-signin.html">Sign in</a></p>
+</section>
+</main>
+</body>
+</html>

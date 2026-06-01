@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Sign Up | Dots View</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="auth-page customer-signup-page">
+<header>
+<div class="wrap nav">
+<a class="logo" href="index.html"><img src="logo.png" alt="Dots View logo"></a>
+<nav>
+<a href="index.html">Home</a>
+<a class="active" href="customer-signup.html">Customer Sign Up</a>
+<a href="vendor.html">For Vendors</a>
+<a href="list-your-truck.html">Start Selling</a>
+</nav>
+<a class="btn" href="list-your-truck.html">Start Selling</a>
+</div>
+</header>
+
+<main class="auth-shell customer-shell">
+<section class="signin-window customer-window" aria-labelledby="customer-title">
+<div class="window-bar">
+<span></span>
+<span></span>
+<span></span>
+</div>
+<p class="eyebrow">Customer Signup</p>
+<h1 id="customer-title">Find what is open today.</h1>
+<p class="lead">Save your favorite trucks, vendor shows, and pop-ups. After signup, you will land on the live map.</p>
+
+<form class="signin-form" action="livefeed.html" method="get">
+<label for="customer-name">Name</label>
+<input id="customer-name" name="customer-name" type="text" placeholder="Sam Rivera" required>
+
+<label for="email">Email</label>
+<input id="email" name="email" type="email" placeholder="you@example.com" required>
+
+<label for="home-area">Neighborhood</label>
+<input id="home-area" name="home-area" type="text" placeholder="New Haven, Long Wharf, East Rock">
+
+<div class="form-section customer-prefs">
+<h2>Show me</h2>
+<label class="checkline"><input type="checkbox" name="wants-trucks" checked>Food trucks</label>
+<label class="checkline"><input type="checkbox" name="wants-shows" checked>Vendor shows</label>
+<label class="checkline"><input type="checkbox" name="wants-popups" checked>Pop-up shops and garage sales</label>
+</div>
+
+<button class="btn primary btn-block" type="submit">Open the Live Feed</button>
+</form>
+
+<div class="customer-preview">
+<strong>Live feed includes</strong>
+<span>Hours, approximate locations, demand hotspots, and filters for trucks, vendor shows, and pop-ups.</span>
+</div>
+</section>
+</main>
+</body>
+</html>
