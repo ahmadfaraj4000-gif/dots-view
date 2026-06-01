@@ -24,8 +24,8 @@
 <section class="livefeed-top wrap">
 <div>
 <p class="eyebrow">Customer Live Feed</p>
-<h1>What is open nearby.</h1>
-<p class="lead">Food trucks, traveling vendor shows, and neighborhood pop-ups on one live map.</p>
+<h1>Find the moving market.</h1>
+<p class="lead">Food trucks, traveling vendor shows, and neighborhood pop-ups on one live map. Follow the spots you love, check today’s hours, then go put money in local hands.</p>
 </div>
 <div class="feed-filters" aria-label="Map filters">
 <label><input type="checkbox" data-filter="truck" checked><span class="legend-dot truck-dot"></span>Food trucks</label>
@@ -58,37 +58,51 @@
 <strong>Demand Hotspot</strong>
 <span>Lunch activity building near the green</span>
 </div>
+<div class="demand-hotspot hotspot-secondary">
+<strong>Beach Wave</strong>
+<span>Afternoon foot traffic near the water</span>
+</div>
+<div class="support-route"></div>
 
 <button class="map-marker marker-truck m1" data-type="truck" type="button" aria-label="Toro Tacos food truck">
 <span class="marker-icon" data-letter="T"></span>
-<span class="marker-card"><strong>Toro Tacos</strong><small>Food truck</small><em>Today: 11AM-8PM</em><em>Near Chapel St, by the green</em></span>
+<span class="marker-card"><strong>Toro Tacos</strong><small>Food truck - 1,284 followers</small><em>Today: 11AM-8PM</em><em>Near Chapel St, by the green</em><span class="follow-pill">Follow for route updates</span></span>
 </button>
 <button class="map-marker marker-truck m2" data-type="truck" type="button" aria-label="Cloud Coffee food truck">
 <span class="marker-icon" data-letter="C"></span>
-<span class="marker-card"><strong>Cloud Coffee</strong><small>Food truck</small><em>Today: 7AM-2PM</em><em>Near State St and the library</em></span>
+<span class="marker-card"><strong>Cloud Coffee</strong><small>Food truck - 842 followers</small><em>Today: 7AM-2PM</em><em>Near State St and the library</em><span class="follow-pill">Follow for morning stops</span></span>
 </button>
 <button class="map-marker marker-show m3" data-type="show" type="button" aria-label="Elm City Makers vendor show">
 <span class="marker-icon" data-letter="S"></span>
-<span class="marker-card"><strong>Elm City Makers</strong><small>Vendor show</small><em>Today: 10AM-5PM</em><em>Approx. Wooster Square park edge</em></span>
+<span class="marker-card"><strong>Elm City Makers</strong><small>Vendor show - 516 supporters</small><em>Today: 10AM-5PM</em><em>Approx. Wooster Square park edge</em><span class="follow-pill">Follow the next show</span></span>
 </button>
 <button class="map-marker marker-show m4" data-type="show" type="button" aria-label="Harbor Craft Row vendor show">
 <span class="marker-icon" data-letter="H"></span>
-<span class="marker-card"><strong>Harbor Craft Row</strong><small>Traveling vendors</small><em>Today: Noon-6PM</em><em>Long Wharf, near the water</em></span>
+<span class="marker-card"><strong>Harbor Craft Row</strong><small>Traveling vendors - 679 supporters</small><em>Today: Noon-6PM</em><em>Long Wharf, near the water</em><span class="follow-pill">Follow weekend markets</span></span>
 </button>
 <button class="map-marker marker-popup m5" data-type="popup" type="button" aria-label="Maple Street garage sale">
 <span class="marker-icon" data-letter="P"></span>
-<span class="marker-card"><strong>Maple Street Sale</strong><small>Garage sale</small><em>Today: 9AM-3PM</em><em>Approx. Maple St driveway row</em></span>
+<span class="marker-card"><strong>Maple Street Sale</strong><small>Garage sale - 93 supporters</small><em>Today: 9AM-3PM</em><em>Approx. Maple St driveway row</em><span class="follow-pill">Follow for pop-up alerts</span></span>
 </button>
 <button class="map-marker marker-popup m6" data-type="popup" type="button" aria-label="Vinyl box pop-up shop">
 <span class="marker-icon" data-letter="V"></span>
-<span class="marker-card"><strong>Vinyl Box Pop-Up</strong><small>Records and tapes</small><em>Today: 1PM-7PM</em><em>Near Long Wharf Dr lot B</em></span>
+<span class="marker-card"><strong>Vinyl Box Pop-Up</strong><small>Records and tapes - 211 supporters</small><em>Today: 1PM-7PM</em><em>Near Long Wharf Dr lot B</em><span class="follow-pill">Follow the crate drops</span></span>
 </button>
 
 <aside class="live-map-panel">
 <strong>Live now</strong>
-<div><span class="legend-dot truck-dot"></span>2 food trucks</div>
-<div><span class="legend-dot show-dot"></span>2 vendor shows</div>
-<div><span class="legend-dot popup-dot"></span>2 pop-ups</div>
+<div><span class="legend-dot truck-dot"></span><span data-count="truck">2 food trucks</span></div>
+<div><span class="legend-dot show-dot"></span><span data-count="show">2 vendor shows</span></div>
+<div><span class="legend-dot popup-dot"></span><span data-count="popup">2 pop-ups</span></div>
+<div><span class="legend-dot fan-dot"></span><span data-follow-count>0 followed today</span></div>
+</aside>
+
+<aside class="community-panel">
+<strong>Pro suggestions</strong>
+<button class="pro-suggestion" type="button" data-focus="m1"><span>Pro</span>Lunch at Toro Tacos</button>
+<button class="pro-suggestion" type="button" data-focus="m4"><span>Pro</span>Walk Harbor Craft Row</button>
+<button class="pro-suggestion" type="button" data-focus="m5"><span>Pro</span>Check Maple Street Sale</button>
+<small>Only Pro vendors and active Pro event passes appear in these suggestions. Tap a stop to pull up hours and the approximate location.</small>
 </aside>
 </div>
 </section>
@@ -97,15 +111,43 @@
 <script>
 const filters = document.querySelectorAll("[data-filter]");
 const markers = document.querySelectorAll("[data-type]");
+const focusButtons = document.querySelectorAll("[data-focus]");
+const counts = document.querySelectorAll("[data-count]");
+const followCount = document.querySelector("[data-follow-count]");
 
 function updateMapFilters() {
   const active = new Set([...filters].filter((filter) => filter.checked).map((filter) => filter.dataset.filter));
   markers.forEach((marker) => {
     marker.classList.toggle("is-hidden", !active.has(marker.dataset.type));
   });
+  counts.forEach((count) => {
+    const type = count.dataset.count;
+    const visible = [...markers].filter((marker) => marker.dataset.type === type && active.has(type)).length;
+    const label = type === "truck" ? "food trucks" : type === "show" ? "vendor shows" : "pop-ups";
+    count.textContent = `${visible} ${label}`;
+  });
 }
 
 filters.forEach((filter) => filter.addEventListener("change", updateMapFilters));
+focusButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const marker = document.querySelector(`.${button.dataset.focus}`);
+    if (!marker) return;
+    const filter = document.querySelector(`[data-filter="${marker.dataset.type}"]`);
+    if (filter) filter.checked = true;
+    updateMapFilters();
+    markers.forEach((item) => item.classList.remove("is-selected"));
+    marker.classList.add("is-selected");
+    marker.focus();
+  });
+});
+markers.forEach((marker) => {
+  marker.addEventListener("click", () => {
+    marker.classList.toggle("is-following");
+    const followed = document.querySelectorAll(".map-marker.is-following").length;
+    if (followCount) followCount.textContent = `${followed} followed today`;
+  });
+});
 updateMapFilters();
 </script>
 </body>

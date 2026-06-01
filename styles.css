@@ -243,6 +243,32 @@ h1 span,
   border-radius: 10px;
   font-weight: 900;
 }
+.pass-prices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 12px 0 0;
+}
+.pass-prices div {
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .68);
+  padding: 10px;
+}
+.pass-prices strong,
+.pass-prices span {
+  display: block;
+}
+.pass-prices strong {
+  color: var(--muted);
+  font-size: 13px;
+}
+.pass-prices span {
+  margin-top: 4px;
+  color: var(--purple);
+  font-size: 21px;
+  font-weight: 900;
+}
 .plan-note {
   margin: 12px 0 0;
   color: var(--red);
@@ -494,6 +520,9 @@ ul {
 .popup-dot {
   background: white;
   border-color: #d7c8f5;
+}
+.fan-dot {
+  background: linear-gradient(145deg, #6500c8, #b185ff);
 }
 .profile-shell {
   padding: 56px 0;
@@ -818,7 +847,7 @@ ul {
   line-height: 1.45;
 }
 .pro-grid {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .phone {
@@ -1413,6 +1442,29 @@ footer {
   font-size: 12px;
   font-weight: 800;
 }
+.hotspot-secondary {
+  left: auto;
+  right: 14%;
+  top: auto;
+  bottom: 25%;
+  width: 190px;
+  height: 108px;
+  background: radial-gradient(circle, rgba(255, 255, 255, .76), rgba(177, 133, 255, .24) 48%, transparent 72%);
+  animation-delay: 1.2s;
+}
+.support-route {
+  position: absolute;
+  left: 27%;
+  top: 43%;
+  width: 42%;
+  height: 34%;
+  border-top: 5px dashed rgba(101, 0, 200, .34);
+  border-right: 5px dashed rgba(101, 0, 200, .30);
+  border-radius: 0 64% 0 0;
+  transform: rotate(-7deg);
+  pointer-events: none;
+  animation: routeGlow 3.8s ease-in-out infinite;
+}
 .map-marker {
   position: absolute;
   display: grid;
@@ -1429,6 +1481,29 @@ footer {
 .map-marker:hover {
   transform: translateY(-3px);
   z-index: 5;
+}
+.map-marker.is-selected {
+  transform: translateY(-5px) scale(1.06);
+  z-index: 6;
+}
+.map-marker.is-selected .marker-card {
+  display: grid;
+  gap: 3px;
+}
+.map-marker.is-selected .marker-icon {
+  box-shadow: 0 0 0 8px rgba(101, 0, 200, .16), 0 18px 34px rgba(18, 10, 37, .24);
+}
+.map-marker.is-following .marker-icon::before {
+  content: "";
+  position: absolute;
+  right: -7px;
+  top: -7px;
+  width: 16px;
+  height: 16px;
+  border: 3px solid white;
+  border-radius: 50%;
+  background: var(--purple-2);
+  box-shadow: 0 5px 12px rgba(18, 10, 37, .22);
 }
 .marker-icon {
   display: flex;
@@ -1470,7 +1545,8 @@ footer {
 }
 .marker-card strong,
 .marker-card small,
-.marker-card em {
+.marker-card em,
+.marker-card .follow-pill {
   display: block;
 }
 .marker-card small {
@@ -1483,6 +1559,23 @@ footer {
   font-style: normal;
   font-weight: 900;
   line-height: 1.35;
+}
+.follow-pill {
+  width: fit-content;
+  margin-top: 6px;
+  padding: 7px 9px;
+  border-radius: 999px;
+  background: var(--panel-soft);
+  color: var(--purple);
+  font-size: 12px;
+  font-weight: 900;
+}
+.map-marker.is-following .follow-pill {
+  background: var(--purple);
+  color: white;
+}
+.map-marker.is-following .follow-pill::after {
+  content: " saved";
 }
 .marker-truck .marker-icon { background: linear-gradient(145deg, var(--purple), #3f0084); }
 .marker-show .marker-icon { background: linear-gradient(145deg, #b185ff, #7d22e8); }
@@ -1524,6 +1617,65 @@ footer {
   gap: 8px;
   color: var(--muted);
   font-weight: 900;
+}
+.community-panel {
+  position: absolute;
+  right: 22px;
+  top: 22px;
+  display: grid;
+  gap: 9px;
+  width: min(270px, calc(100% - 44px));
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .94);
+  box-shadow: 0 16px 34px rgba(18, 10, 37, .12);
+  z-index: 4;
+}
+.community-panel strong {
+  font-size: 18px;
+}
+.community-panel button {
+  min-height: 40px;
+  padding: 10px 12px;
+  border: 1px solid rgba(101, 0, 200, .20);
+  border-radius: 8px;
+  background: var(--panel-soft);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 900;
+  text-align: left;
+  cursor: pointer;
+}
+.community-panel .pro-suggestion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.community-panel .pro-suggestion span {
+  display: inline-grid;
+  place-items: center;
+  min-width: 34px;
+  min-height: 22px;
+  border-radius: 999px;
+  background: var(--purple);
+  color: white;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.community-panel button:hover {
+  background: var(--purple);
+  color: white;
+}
+.community-panel button:hover span {
+  background: white;
+  color: var(--purple);
+}
+.community-panel small {
+  color: var(--muted);
+  font-weight: 800;
+  line-height: 1.4;
 }
 
 @media (max-width: 1000px) {
@@ -1592,6 +1744,12 @@ footer {
   .feature { padding: 22px; }
   .live-map { min-height: 640px; }
   .demand-hotspot { left: 28%; top: 31%; }
+  .hotspot-secondary { right: 8%; bottom: 28%; }
+  .community-panel {
+    top: auto;
+    right: 16px;
+    bottom: 132px;
+  }
   .marker-card {
     left: -70px;
     top: 48px;
