@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Profile | Dots View</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="customer-profile-page">
+<header>
+<div class="wrap nav">
+<a class="logo" href="index.html"><img src="logo.png" alt="Dots View logo"></a>
+<nav>
+<a href="index.html">Home</a>
+<a class="active" href="customer-profile.html">Profile</a>
+<a href="livefeed.html">Live Feed</a>
+<a href="vendor.html">For Vendors</a>
+</nav>
+<div class="nav-actions">
+<a class="btn" href="customer-signup.html">Sign In</a>
+<a class="btn primary" href="livefeed.html">Find Vendors</a>
+</div>
+</div>
+</header>
+
+<main>
+<section class="customer-profile-hero">
+<div class="wrap customer-profile-layout">
+<article class="customer-profile-main">
+<div class="customer-cover">
+<span class="customer-cover-badge">Customer Profile</span>
+</div>
+<div class="customer-profile-body">
+<div class="customer-avatar">JL</div>
+<div class="customer-profile-text">
+<h1>Jay's Dots</h1>
+<p>Your home base for following local trucks, saving favorite vendors, checking live dots, and seeing when the places you love go active.</p>
+<div class="customer-stats">
+<div><strong>18</strong><span>followed dots</span></div>
+<div><strong>6</strong><span>nearby today</span></div>
+<div><strong>12</strong><span>saved vendors</span></div>
+<div><strong>4</strong><span>recent orders</span></div>
+</div>
+</div>
+</div>
+</article>
+
+<aside class="customer-side-card">
+<h2>Quick Access</h2>
+<p>Jump straight into what customers use most.</p>
+<div class="customer-action-grid">
+<a href="livefeed.html">Live Map <span>Open</span></a>
+<a href="#following">Following <span>18</span></a>
+<a href="#activity">Alerts <span>3 new</span></a>
+<a href="#orders">Orders <span>View</span></a>
+<a href="#privacy">Privacy <span>Safe</span></a>
+</div>
+</aside>
+</div>
+</section>
+
+<section id="map" class="customer-section">
+<div class="wrap customer-map-card">
+<div class="customer-map-top">
+<div class="customer-search">Search food, vendors, products, or locations...</div>
+<a class="customer-filter" href="livefeed.html" aria-label="Open live map filters">Map</a>
+</div>
+<div class="customer-map">
+<span class="customer-vendor-dot cv1"></span><span class="customer-map-label cl1">Tacos</span>
+<span class="customer-vendor-dot cv2"></span><span class="customer-map-label cl2">Coffee</span>
+<span class="customer-vendor-dot cv3"></span><span class="customer-map-label cl3">BBQ</span>
+<span class="customer-vendor-dot cv4"></span><span class="customer-map-label cl4">Dessert</span>
+<span class="customer-user-dot"></span>
+<div class="customer-user-label"><strong>Your Area</strong><span>Showing nearby vendor dots without exposing exact customer location.</span></div>
+<div class="customer-map-bottom">
+<div><strong>6</strong><span>active vendors nearby</span></div>
+<div><strong>3</strong><span>followed dots online</span></div>
+<div><strong>Live</strong><span>routes updating</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="following" class="customer-section">
+<div class="wrap">
+<div class="customer-section-title">
+<h2>Following Now</h2>
+<p>Your saved vendors, active locations, schedules, and quick actions in one clean profile view.</p>
+</div>
+<div class="customer-vendor-grid">
+<article class="customer-vendor-card">
+<div class="customer-vendor-photo tacos-photo"><span>Active</span></div>
+<div class="customer-vendor-content">
+<h3>Toro Tacos</h3>
+<p>0.3 mi away. Open until 8PM. Next stop posted for the green.</p>
+<div class="chips"><span class="chip">Tacos</span><span class="chip">Live Dot</span><span class="chip">Order</span></div>
+<a class="customer-follow-btn" href="livefeed.html">View Dot</a>
+</div>
+</article>
+<article class="customer-vendor-card">
+<div class="customer-vendor-photo coffee-photo"><span>Active</span></div>
+<div class="customer-vendor-content">
+<h3>Cloud Coffee</h3>
+<p>1.4 mi away. Morning route active. Cold brew still on the board.</p>
+<div class="chips"><span class="chip">Coffee</span><span class="chip">Notify</span><span class="chip">Menu</span></div>
+<a class="customer-follow-btn" href="livefeed.html">View Dot</a>
+</div>
+</article>
+<article class="customer-vendor-card">
+<div class="customer-vendor-photo dessert-photo"><span>Nearby</span></div>
+<div class="customer-vendor-content">
+<h3>Dulce Window</h3>
+<p>Pop-up today from 5PM to 9PM. Churros and chocolate by the water.</p>
+<div class="chips"><span class="chip">Dessert</span><span class="chip">Photos</span><span class="chip">Follow</span></div>
+<a class="customer-follow-btn" href="livefeed.html">View Dot</a>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+<section id="activity" class="customer-section">
+<div class="wrap customer-feed-grid">
+<article class="customer-feed-card">
+<h3>Recent Activity</h3>
+<p>Updates from vendors you follow and nearby dots worth checking out.</p>
+<div class="customer-activity">
+<div><strong>Toro Tacos is active now</strong><span>2 min ago</span></div>
+<div><strong>Cloud Coffee posted a new stop</strong><span>14 min ago</span></div>
+<div><strong>Dulce Window added new photos</strong><span>Today</span></div>
+<div><strong>3 followed vendors are near your area</strong><span>Live</span></div>
+</div>
+</article>
+
+<aside class="customer-privacy" id="privacy">
+<h3>Privacy built into the experience.</h3>
+<p>Customers control their settings. The app focuses on nearby vendors and safe grouped activity, not exposing individual people publicly.</p>
+<div>
+<span><strong>Location</strong>Approximate</span>
+<span><strong>Hotspots</strong>Grouped only</span>
+<span><strong>Alerts</strong>Customer controlled</span>
+</div>
+</aside>
+</div>
+</section>
+</main>
+
+<footer class="wrap">
+Dots View Customer Profile. Follow the Dot.
+</footer>
+</body>
+</html>
